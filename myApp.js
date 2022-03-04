@@ -9,7 +9,10 @@ app.get("/",function(req, res) {
   res.sendFile(path.join(__dirname, '/views/index.html'));
     //res.sendFile(__dirname/views/index.html);
 })
-
+app.get('/json', (req, res) => {
+  //res.setHeader('Content-Type', 'application/json'); // da verificare per impostare contenuto
+    res.json({message: "Hello json"});
+});
 
 
 
