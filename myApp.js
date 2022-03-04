@@ -11,7 +11,8 @@ app.get("/",function(req, res) {
 })
 app.get('/json', (req, res) => {
   //res.setHeader('Content-Type', 'application/json'); // da verificare per impostare contenuto
-    res.json({message: "Hello json"});
+    //res.json({message: "Hello json"});
+    res.send(process.env.MESSAGE_STYLE)
 });
 
 
