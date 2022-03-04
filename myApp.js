@@ -13,13 +13,14 @@ app.get("/",function(req, res) {
 })
 app.get('/json', (req, res) => {
   //res.setHeader('Content-Type', 'application/json'); // da verificare per impostare contenuto
-  /*
+
   if (process.env.MESSAGE_STYLE == "uppercase") {
-    res.json()
+    jsonObj = jsonObj.message.toUpperCase();
+    res.json(jsonObj);
   } 
-  */
+  
   //res.json({message: "Hello json"});
-  res.send(jsonObj.message)
+  res.send(jsonObj)
 });
 
 
