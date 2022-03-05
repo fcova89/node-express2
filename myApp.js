@@ -12,6 +12,10 @@ app.use(function (req,res,next) {
   next();
 }); //intercetta tutte le routes
 
+app.get('/:word/echo',function(req,res){ //route GET su path /:word/echo
+  res.json({echo: req.params.word}); //response in json + utilizzo la dot notation per accedere a value della key word nell'oggetto req.params
+  });
+
 app.get('/now',function (req,res,next) { //middleware function
   req.time = new Date().toString(); // ho modificato un parametro della richiesta e posso usarlo come risposta
   next()
