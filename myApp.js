@@ -13,11 +13,10 @@ app.use(function (req,res,next) {
 }); //intercetta tutte le routes
 
 app.get('/now',function (req,res,next) { //middleware function
-  req.time = new Date().toString(); //
-  res.send(req.time)
+  req.time = new Date().toString(); // ho modificato un parametro della richiesta e posso usarlo come risposta
   next()
   },function (req,res) { //final handler chained
-  
+  res.json({time: req.time})
   }
 )
 app.get("/",function(req, res) {
