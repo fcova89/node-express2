@@ -8,7 +8,7 @@ var jsonObj = {message: "Hello json"};
 app.use('/public',express.static(path.join(__dirname, '/public'))); //middleware per style.css
 
 app.use(function (req, res,next) {
-  res.send(req.method());
+  res.send(req.method); //test invio & recupero method
   next();
 }); //intercetta tutte le routes
 
@@ -27,11 +27,6 @@ app.get('/json', (req, res) => {
   //res.json({message: "Hello json"});
   res.send(jsonObj)
 });
-
-
-
-
-
 
 
 
