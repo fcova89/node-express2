@@ -12,6 +12,14 @@ app.use(function (req,res,next) {
   next();
 }); //intercetta tutte le routes
 
+app.get('/now',function (req,res,next) { //middleware function
+  req.time = new Date().toString(); //
+  res.send(req.time)
+  next()
+  },function (req,res) { //final handler chained
+  
+  }
+)
 app.get("/",function(req, res) {
   res.sendFile(path.join(__dirname, '/views/index.html'));
     //res.sendFile(__dirname/views/index.html);
