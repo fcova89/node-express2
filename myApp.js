@@ -45,12 +45,13 @@ app.get('/json', (req, res) => {
 
 app.route('/name') //definiamo endpoint
 .post(function(req,res,next){ //route di tipo post per recuperare query parameters
-  console.log(`${req.body.first} ${req.body.last}`)
+  console.log(`${req.body.first} ${req.body.last}`);
+  res.json({name: `${req.body.first} ${req.body.last}`})
 	next()
 })
-.get(function(req,res){ //route di tipo get per rimandare json
+/*.get(function(req,res){ //route di tipo get per rimandare json
 	res.json({name: `${req.body.first} ${req.body.last}`})
-})
+})*/
 
 
 
