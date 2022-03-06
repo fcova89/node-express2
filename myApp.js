@@ -46,7 +46,7 @@ app.route('/name') //definiamo endpoint
 })
 .get(function(req,res){ //route di tipo get per rimandare json
 	//var cognome = req.query.last
-  res.send(erq.query.first)
+  res.send(req.query.first)
 })
 
 
