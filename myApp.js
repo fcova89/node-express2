@@ -7,8 +7,7 @@ var app = express();
 var jsonObj = {message: "Hello json"}; 
 
 app.use('/public',express.static(path.join(__dirname, '/public'))); //middleware per style.css
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+
 
 app.use(function (req,res,next) {
   console.log(`${req.method} ${req.path} - ${req.ip}`); //test loggo il method recupero method
@@ -42,19 +41,14 @@ app.get('/json', (req, res) => {
   res.send(jsonObj)
 });
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.route('/name') //definiamo endpoint
 .post(function(req,res,next){ //route di tipo post per recuperare query parameters
 	next()
 })
 .get(function(req,res){ //route di tipo get per rimandare json
-	res.json({name: `${req.query.first} ${req.query.last}`})
-})
-
-
-app.route('/body') //definiamo endpoint
-.bodyParser.urlencoded({extended: false})
-.use(function(req,res){ //route di tipo get per rimandare json
-	res.json({name: `${req.query.first} ${req.query.last}`})
+	res.json({name: `${req.body.first} ${req.body.last}`})
 })
 
 
