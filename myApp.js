@@ -46,7 +46,7 @@ app.route('/name') //definiamo endpoint
 	next()
 })
 .get(function(req,res){ //route di tipo get per rimandare json
-	res.json({name: `$nome $cognome`})
+	res.json({name: nome})
 })
 
 
