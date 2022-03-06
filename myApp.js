@@ -1,5 +1,6 @@
 var express = require('express');
 const path = require('path');
+var bodyParser = require('body-parser');
 
 var app = express();
 
@@ -41,7 +42,6 @@ app.get('/json', (req, res) => {
 
 app.route('/name') //definiamo endpoint
 .post(function(req,res,next){ //route di tipo post per recuperare query parameters
-
 	next()
 })
 .get(function(req,res){ //route di tipo get per rimandare json
@@ -49,12 +49,11 @@ app.route('/name') //definiamo endpoint
 })
 
 
-
-
-
-
-
-
+app.route('/body') //definiamo endpoint
+.bodyParser.urlencoded({extended: false})
+.use(function(req,res){ //route di tipo get per rimandare json
+	res.json({name: `${req.query.first} ${req.query.last}`})
+})
 
 
 
