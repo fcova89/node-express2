@@ -8,6 +8,7 @@ var jsonObj = {message: "Hello json"};
 
 app.use('/public',express.static(path.join(__dirname, '/public'))); //middleware per style.css
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(function (req,res,next) {
   console.log(`${req.method} ${req.path} - ${req.ip}`); //test loggo il method recupero method
