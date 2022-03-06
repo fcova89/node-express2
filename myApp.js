@@ -40,8 +40,13 @@ app.get('/json', (req, res) => {
 });
 
 app.route('/name') //definiamo endpoint
-.get(function(req,res){
-	res.json({name: `$req.query.first $req.query.last`}) //rispondiamo a GET su path /name con un Json, non sono sicuro prenda i queri params
+.post(function(req,res,next){ //route di tipo post per recuperare query parameters
+	var nome = req.query.first;
+	var cognome = req.query.last
+	next()
+})
+.get(function(req,res){ //route di tipo get per rimandare json
+	res.json({name: `$nome $cognome`})
 })
 
 
