@@ -41,9 +41,9 @@ app.get('/json', (req, res) => {
   res.send(jsonObj)
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 app.route('/name') //definiamo endpoint
+.use(bodyParser.urlencoded({ extended: false }));
+.use(bodyParser.json());
 .post(function(req,res,next){ //route di tipo post per recuperare query parameters
 	next()
 })
